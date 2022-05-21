@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getDatabase, push, ref, set, onChildAdded } from "firebase/database";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
-export default function chatComponent() {
+export default function ChatComponent() {
   const [user, setUser] = useState("");
   const [chats, setChats] = useState([]);
   const [msg, setMsg] = useState("");
@@ -69,20 +69,18 @@ export default function chatComponent() {
     <>
       <div>
         {user.email ? null : (
-          <div>
-            {/* <input
-          type="text"
-          placeholder="Enter user to start"
-          onBlur={(e) => setUser(e.target.value)}
-        ></input> */}
-            <button
-              onClick={(e) => {
-                googleLogin();
-              }}
-            >
-              Google SignIn
-            </button>
-          </div>
+            <div className="container2">
+              <div className="btn-btn">
+                <p><strong>Sign In to start chating...</strong></p>
+                <button
+                  onClick={(e) => {
+                    googleLogin();
+                  }}
+                >
+                  Google SignIn
+                </button>
+              </div>
+            </div>
         )}
         {user.email ? (
           <div>
