@@ -22,11 +22,15 @@ function App() {
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
+    console.log("error : " + errorCode);
     const errorMessage = error.message;
+    console.log("error message : " + errorMessage)
     // The email of the user's account used.
     const email = error.email;
+    console.log("email : " + email);
     // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
+    console.log("credential : " + credential);
     // ...
   });
   }
@@ -52,7 +56,6 @@ function App() {
       setChats(chats=>[...chats,data.val()])
       setTimeout(()=>{
         updateHeight()
-
       },100)
     });
   },[])
